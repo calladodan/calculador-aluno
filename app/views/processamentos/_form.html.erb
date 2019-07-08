@@ -1,0 +1,19 @@
+<%= form_for @processamento do |f| %>
+  <div class="form-group col-md-4">
+    <%= f.label :tipo %>
+    <%=  f.select :tipo, options_for_select(["CH", "CR" ]) %>
+  </div>
+
+  <%= f.fields_for :dado do |d| %>
+    <div class="form-group">
+      <%= d.label  :arquivo %>
+      <%= d.file_field :arquivo, accept: 'csv' %>
+    </div>
+
+  <% end %>
+
+  <div class="form-group">
+    <%=link_to 'Voltar', processamentos_path, class: 'btn btn-primary' %>
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>

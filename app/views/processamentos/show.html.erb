@@ -1,0 +1,12 @@
+<div class="field">
+  <%=  @processamento.id %>
+  <%=  @processamento.tipo %>
+  <% if @processamento.finalizado? %>
+    <%=  link_to 'Baixar Dado Processado', url_for(@processamento.dado.arquivo )%>
+  <% end %>
+  <%# if @processamento.jid %>
+    <%#= hidden_field_tag 'jid', @processamento.jid %>
+    <%#= label_tag 'status' %>
+  <%# end %>
+  <%= link_to 'Cancelar Processamento', processamento_path(@processamento), method: :delete %>
+</div>
